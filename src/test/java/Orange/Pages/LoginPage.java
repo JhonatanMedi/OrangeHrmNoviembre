@@ -1,5 +1,7 @@
 package Orange.Pages;
 
+import Orange.DataBase.ConectionDataBase;
+import Orange.DataBase.ConsultDataBase;
 import Orange.Steps.ButtonPages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,10 +9,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import java.sql.SQLException;
+
 public class LoginPage {
 
     //llamado de una clase en otro paquete
     private ButtonPages buttonPages;
+
+    private ConectionDataBase conectionDataBase;
+    private ConsultDataBase consultDataBase;
 
     //Esto es encontrar un elemeto en la pagina
     @FindBy(how = How.NAME, using = "username")
@@ -27,7 +34,9 @@ public class LoginPage {
         this.buttonPages = new ButtonPages(driver);
     }
 
-    public void llenarLogin(String userName, String password) {
+    public void llenarLogin(String userName, String password) throws SQLException {
+        conectionDataBase.getConnection();
+        consultDataBase.consultUser();
         txtUser.sendKeys(userName);
         txtPassword.sendKeys(password);
         buttonPages.btnLogin();

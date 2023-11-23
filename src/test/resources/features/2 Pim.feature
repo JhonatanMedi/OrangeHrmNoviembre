@@ -9,5 +9,5 @@ Feature: validar PIM
     When el usuario ingresa add employee diligencia el formulario <firstName> <middle> <lastName>
 
     Examples:
-      | userName | password | firstName | middle | lastName |
-      | Admin    | admin123 | Jhonatan  | tatan  | medina   |
+      | userName | password | firstName | middle  | lastName |
+      | Admin    | admin123 | orange    | naranja | piña     |

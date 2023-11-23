@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import Orange.Steps.Conexion;
 import io.cucumber.java.en.Given;
 
+import java.sql.SQLException;
+
 
 public class DefinitionsSteps {
 
@@ -27,7 +29,7 @@ public class DefinitionsSteps {
     }
 
     @When("^el usuario diligenica usuario (.*) diligencia password (.*)$")
-    public void llenarLogin(String userName, String password) {
+    public void llenarLogin(String userName, String password) throws SQLException {
         this.loginPage = new LoginPage(driver);
         this.loginPage.llenarLogin(userName, password);
     }
